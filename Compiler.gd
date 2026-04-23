@@ -1,14 +1,6 @@
 extends "res://Scripts/Compiler.gd"
 
 
-#var B_Loader: Node
-
-
-#func _ready() -> void:
-    #B_Loader = get_tree().root.get_node_or_null("B_Loader")
-    #super()
-
-
 func Spawn():
     var map = get_tree().current_scene.get_node("/root/Map")
     
@@ -17,7 +9,7 @@ func Spawn():
         super()
         return
         
-    B_Loader.log_message("loading " + map.mapName)
+    print("[B_Loader] loading " + map.mapName)
     var spawnTarget: String
     
     if map.mapName in Loader.added_shelters.keys():
@@ -40,7 +32,7 @@ func Spawn():
         for item_data in _get_connected_content(map.mapName):
             var packed_item = load(item_data.path)
             if not packed_item:
-                B_Loader.log_error("falied to load: " + item_data.path)
+                print("[B_Loader] falied to load: " + item_data.path)
                 continue
             var item = packed_item.instantiate()
             item.position = item_data.position
@@ -104,7 +96,7 @@ func _get_spawn_target(map, previousMap) -> String:
     #else find the correct spawn
     return map_spawns[map][previousMap]
 
-
+# must be updated if vanilla maps are added
 const map_spawns = {
   "Village":
         {
@@ -147,5 +139,3 @@ const map_spawns = {
             "Apartments": "Transition_Apartments"
         }
 }
-    
-    

@@ -2,17 +2,18 @@ extends Node
 
 
 func _ready():
+    print("[B_Loader] Setup starting")
     _init_loader()
-    log_message("Setup completed")
+    print("[B_Loader] Setup completed")
 
 
 func _init_loader() -> void:
     var Loader = get_tree().root.get_node_or_null("Loader")
     if not Loader:
-        log_error("Loader not found. Setup failed!")
+        print("[B_Loader] Loader not found. Setup failed!")
         return
     if Loader.has_method("add_shelter"):
-        log_message("Already setup")
+        print("[B_Loader] Already setup")
         return
     _override_loader()
     _override_compiler()
@@ -34,14 +35,5 @@ func _override_loader() -> void:
     loader.animation = get_tree().root.get_node_or_null("Loader/Animation")
     loader.label = get_tree().root.get_node_or_null("Loader/Screen/Label")
     loader.circle = get_tree().root.get_node_or_null("Loader/Screen/Circle")
-    loader.messages = get_tree().root.get_node_or_null("Loader/Messages")
-
-
-func log_message(message: String) -> void:
-    print("[B_Loader] " + message)
-
-
-func log_error(message: String) -> void:
-    print("[B_Loader][ERROR] " + message)
-    
+    loader.messages = get_tree().root.get_node_or_null("Loader/Messages")    
     

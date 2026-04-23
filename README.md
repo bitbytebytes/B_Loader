@@ -40,4 +40,4 @@ func _ready():
     })
 ```
 
-<span style="color: red;"><i>Currently only supports one added shelter or map per vanilla map</i></span>
+_Currently only supports one added shelter or map per vanilla map_

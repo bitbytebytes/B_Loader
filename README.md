@@ -4,9 +4,14 @@ A mod for [Road to Vostok](https://roadtovostok.com/)
 
 Works with the latest versions of the [VostokMods Mod Loader](https://modworkshop.net/mod/49779) and the [Metro Mod Loader](https://modworkshop.net/mod/55623)
 
-Allows for easily adding shelters and maps to the base game via a single function call with a simple signature:
+Allows modders to easily add shelters and maps to the base game via a single function call with a simple signature:
 
 ```
+# ModMain.gd:
+
+extends Node
+
+
 func _ready():
     Loader.add_shelter({
         "map_name": "Apartment",
@@ -34,3 +39,5 @@ func _ready():
         ]
     })
 ```
+
+<span style="color: red;"><i>Currently only supports one added shelter or map per vanilla map</i></span>

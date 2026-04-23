@@ -1,6 +1,6 @@
 ## B Loader
 
-A mod for Road to Vostok
+A mod for [Road to Vostok](https://roadtovostok.com/)
 
 Works with the latest versions of the [VostokMods Mod Loader](https://modworkshop.net/mod/49779) and the [Metro Mod Loader](https://modworkshop.net/mod/55623)
 

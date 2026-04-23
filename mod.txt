@@ -1,0 +1,11 @@
+[mod]
+
+name="B_Loader"
+id="b_loader"
+version="0.1.0"
+author="BitByteBytes"
+priority=-100
+
+[autoload]
+
+B_Loader="res://mods/B_Loader/Main.gd"

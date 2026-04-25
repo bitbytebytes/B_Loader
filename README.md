@@ -13,6 +13,14 @@ extends Node
 
 
 func _ready():
+    # B Loader adds the add_shelter and add_map functions to Loader.gd
+    # If they don't exist when your mod loads, calling functions will cause game to crash
+    if not Loader.has_method("add_shelter") and not Loader.has_method("add_map"):
+        print("B Loader not available")
+        return
+
+
+    # add a shelter
     Loader.add_shelter({
         "map_name": "Apartment",
         "scene_path": "res://mods/ApartmentShelter/Scenes/Apartment.tscn",

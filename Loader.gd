@@ -56,7 +56,7 @@ func _validate(data: Dictionary) -> bool:
     if data.map_name in added_shelters or data.map_name in added_maps:
         _log("Map with name " + data.map_name + " already added")
         data_valid = false
-    if not FileAccess.file_exists(data.scene_path):
+    if not ResourceLoader.exists(data.scene_path):
         _log("Failed to locate " + data.scene_path)
         data_valid = false
     if not data.entrance_spawn or data.entrance_spawn == "":
@@ -69,7 +69,7 @@ func _validate(data: Dictionary) -> bool:
         _log("No map connection set")
         data_valid = false
     for item in data.connected_content:
-        if not FileAccess.file_exists(item.path):
+        if not ResourceLoader.exists(item.path):
             _log("Failed to locate " + item.path)
             data_valid = false
         if not item.position is Vector3:
@@ -81,5 +81,5 @@ func _validate(data: Dictionary) -> bool:
     return data_valid
  
 
-func _log(message: String) -> void:
-    print("[B_Loader] " + message)
+func _log(msg: String) -> void:
+    print("[B_Loader] " + msg)

@@ -70,7 +70,7 @@ func _validate(data: Dictionary) -> bool:
         data_valid = false
     for item in data.connected_content:
         if not FileAccess.file_exists(item.path):
-            _log("Failed to locate " + data.scene_path)
+            _log("Failed to locate " + item.path)
             data_valid = false
         if not item.position is Vector3:
             _log("Invalid position for " + item.path)

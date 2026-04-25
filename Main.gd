@@ -12,7 +12,7 @@ func _init_loader() -> void:
     if not Loader:
         print("[B_Loader] Loader not found. Setup failed!")
         return
-    if Loader.has_method("add_shelter"):
+    if Loader.has_method("add_shelter") and Loader.has_method("add_map"):
         print("[B_Loader] Already setup")
         return
     _override_loader()
